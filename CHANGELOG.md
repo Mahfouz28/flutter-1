@@ -30,8 +30,159 @@ More information and tips:
 docs/releases/Hotfix-Documentation-Best-Practices.md
 -->
 
+<<<<<<< HEAD
 ## Flutter 3.35 Changes
 
+=======
+## Flutter 3.41 Changes
+
+### [3.41.6](https://github.com/flutter/flutter/releases/tag/3.41.6)
+- [flutter/184025](https://github.com/flutter/flutter/pull/184025) Include a fix from Skia that ensures that the correct atlas for the glyph mask format is used consistently.
+- [flutter/182708](https://github.com/flutter/flutter/issues/182708) Visual issues with circles appearing jagged. Especially on thin stroked circles and circles with small radii.
+- [flutter/183887](https://github.com/flutter/flutter/issues/183887) During SCREEN_OFF event a deadlock preventing new frames causing an ANR can occur on android devices running the Android 16 March Security update.
+
+### [3.41.5](https://github.com/flutter/flutter/releases/tag/3.41.5)
+- [flutter/182708](https://github.com/flutter/flutter/issues/182708) When using Impeller on any platform, bur artifacts in circles rendering at 45 degree angles.
+
+### [3.41.4](https://github.com/flutter/flutter/releases/tag/3.41.4)
+- [flutter/182748](https://github.com/flutter/flutter/issues/182748) When building for an iOS simulator with Xcode 26, the build will fail when there is a CocoaPod dependency that does not support arm.
+- [flutter/182361](https://github.com/flutter/flutter/issues/182361) When iOS plugins register to receive lifecycle events during an event, a crash may occur.
+- [flutter/182367](https://github.com/flutter/flutter/issues/182367) Crash on Flutter Web Skwasm apps.
+- [flutter/183071](https://github.com/flutter/flutter/issues/183071) Updated test package and related dependencies.
+
+### [3.41.3](https://github.com/flutter/flutter/releases/tag/3.41.3)
+
+- [flutter/182501](https://github.com/flutter/flutter/issues/182501) Reduce CPU utilization of idle Flutter Windows apps.
+- [flutter/182233](https://github.com/flutter/flutter/issues/182233) Tapping on the status bar may crash the app on iOS when there's a primary scroll view that has never been laid out.
+
+### [3.41.2](https://github.com/flutter/flutter/releases/tag/3.41.2)
+
+- [flutter/179673](https://github.com/flutter/flutter/issues/179673) When content sizing is not enabled on Android, a race condition can sometimes make platform views not render correctly.
+- [flutter/182076](https://github.com/flutter/flutter/issues/182076) Fix flutter build web ignoring --web-define flag
+- [flutter/182243](https://github.com/flutter/flutter/issues/182243) Don't throw an exception if no web define variable is set.
+- [flutter/182292](https://github.com/flutter/flutter/issues/182292) Fix bug in multisurfacerenderer where canvases do not have "position: absolute"
+
+### [3.41.1](https://github.com/flutter/flutter/releases/tag/3.41.1)
+
+- [flutter/182314](https://github.com/flutter/flutter/issues/182314) Test coverage is broken due to pinned `test_api` version in `flutter_test`.
+- [flutter/182335](https://github.com/flutter/flutter/issues/182335) Version 1.29 of the Dart test package adds a blank line to test output causing unexpected test failures.
+
+### [3.41.0](https://github.com/flutter/flutter/releases/tag/3.41.0)
+
+Learn about what's new in this release in [the blog post](https://blog.flutter.dev/whats-new-in-flutter-3-41-302ec140e632), and check out the [CHANGELOG](https://docs.flutter.dev/release/release-notes/release-notes-3.41.0) for a detailed list of all the new changes.
+
+
+## Flutter 3.38 Changes
+
+### [3.38.10](https://github.com/flutter/flutter/releases/tag/3.38.10)
+
+- [flutter/181607](https://github.com/flutter/flutter/pull/181607) When using an ffi plugin on macOS, generated frameworks have the wrong structure.
+
+### [3.38.9](https://github.com/flutter/flutter/releases/tag/3.38.9)
+
+- [flutter/181568](https://github.com/flutter/flutter/pull/181568) Update Dart to 3.10.8.
+
+### [3.38.8](https://github.com/flutter/flutter/releases/tag/3.38.8)
+
+- [flutter/178151](https://github.com/flutter/flutter/issues/178151) - `flutter run -d chrome` may crash with a `DartDevelopmentServiceException` when the application shuts down during the startup sequence.
+
+### [3.38.7](https://github.com/flutter/flutter/releases/tag/3.38.7)
+
+- [flutter/179857](https://github.com/flutter/flutter/issues/179857) - `flutter run -d all` crashes if multiple devices are available.
+
+### [3.38.6](https://github.com/flutter/flutter/releases/tag/3.38.6)
+
+- [flutter/179139](https://github.com/flutter/flutter/issues/179139) - `flutter widget-preview start` creates new cached build artifacts on each run, resulting in increasing disk usage after each run.
+- [flutter/178896](https://github.com/flutter/flutter/issues/178896) - Apps crash during launch on Windows when run from paths containing non-ASCII characters.
+- [flutter/176943](https://github.com/flutter/flutter/issues/176943) - Configuration changes to run tests on macOS 15 or 15.7.2 for Flutter's CI.
+- [flutter/179914](https://github.com/flutter/flutter/issues/179914) - Flutter Android apps that upgrade to AGP 9.0.0 require migration steps.
+- [flutter/175099](https://github.com/flutter/flutter/issues/175099) - When WebViews are scrolled on iOS 26, they become unclickable.
+- [flutter/175074](https://github.com/flutter/flutter/issues/175074) - When the virtual keyboard is closed on Android web, the area behind it remains blank and the app only draws in the area that used to be above the keyboard.
+- [flutter/180381](https://github.com/flutter/flutter/issues/180381) - Apps crash on Android when enabling accessibility, hiding a platform view, and pulling out the top curtain.
+
+### [3.38.5](https://github.com/flutter/flutter/releases/tag/3.38.5)
+
+- [flutter/179700](https://github.com/flutter/flutter/issues/179700) Update dart to 3.10.4.
+
+### [3.38.4](https://github.com/flutter/flutter/releases/tag/3.38.4)
+
+- [flutter/178547](https://github.com/flutter/flutter/issues/178547) Rendering issues in the Linux desktop embedder when using Skia.
+- [flutter/178529](https://github.com/flutter/flutter/issues/178529) AppLocalizations getting deleted when running debug web
+- [flutter/178660](https://github.com/flutter/flutter/issues/178660) `flutter widget-preview start` can crash if `.dart_tool/widget_preview_scaffold/.dart_tool` doesn't exist on subsequent runs.
+- [flutter/175227](https://github.com/flutter/flutter/issues/175227) Flutter Web applications launched in Chrome show a warning related to --no-sandbox.
+- [flutter/179155](https://github.com/flutter/flutter/issues/179155) `flutter widget-preview start` crashes if a file named `pubspec.yaml` is modified outside the root of the previewed project.
+- [flutter/156692](https://github.com/flutter/flutter/issues/156692) `flutter attach` can crash if the target application disconnects unexpectedly.
+- [flutter/179008](https://github.com/flutter/flutter/issues/179008) `flutter pub get` could be spawned multiple times on MacOS when `pubspec.yaml`s outside of the project were modified after a `flutter pub get` in the root project.
+- [flutter/178715](https://github.com/flutter/flutter/issues/178715) Running flutter test on Linux/MacOS for Android projects with build hooks fails without the desktop native tooling installed.
+
+### [3.38.3](https://github.com/flutter/flutter/releases/tag/3.38.3)
+
+- [flutter/178772](https://github.com/flutter/flutter/issues/178772) Flutter engine reports a different version than the framework.
+- [flutter/178804](https://github.com/flutter/flutter/issues/178804) Bump Dart version to [3.10.1](https://github.com/dart-lang/sdk/blob/3.10.1/CHANGELOG.md#3101).
+
+### [3.38.2](https://github.com/flutter/flutter/releases/tag/3.38.2)
+
+- [flutter/178472](https://github.com/flutter/flutter/issues/178472) Widget preview command can crash on exit if in the middle of analyzing changes to a Dart file.
+- [flutter/178452](https://github.com/flutter/flutter/issues/178452) Flutter fails to build on iOS with error message: "Improperly formatted define flag" in add-to-app scenarios.
+- [flutter/178486](https://github.com/flutter/flutter/issues/178486) When running flutter widget-preview start with Flutter Web disabled, an exception is thrown and the widget previewer fails to start.
+- [flutter/178317](https://github.com/flutter/flutter/issues/178317) Running flutter pub get can crash the widget previewer when plugin dependencies are added or updated.
+- [flutter/178318](https://github.com/flutter/flutter/issues/178318) Certain flutter crash scenarios can result in multiple crash reports being submitted for a single process crash.
+- [flutter/176399](https://github.com/flutter/flutter/issues/176399) Visual Studio 2026 is not supported when compiling Windows desktop applications.
+- [flutter/175058](https://github.com/flutter/flutter/issues/175058) The widget previewer fails to start if flutter pub get has not been run in the target project.
+- [flutter/178421](https://github.com/flutter/flutter/issues/178421) When debugging from an IDE with a physical iOS 26 device, IDE installs an app but hangs on a white screen during launching.
+
+### [3.38.1](https://github.com/flutter/flutter/releases/tag/3.38.1)
+
+- [flutter/178400](https://github.com/flutter/flutter/issues/178400) Adds support for Dart 3.10 stable.
+
+### [3.38.0](https://github.com/flutter/flutter/releases/tag/3.38.0)
+
+Learn about what's new in this release in [the blog post](https://blog.flutter.dev/whats-new-in-flutter-3-38-3f7b258f7228), and check out the [CHANGELOG](https://docs.flutter.dev/release/release-notes/release-notes-3.38.0) for a detailed list of all the new changes.
+
+## Flutter 3.35 Changes
+
+### [3.35.7](https://github.com/flutter/flutter/releases/tag/3.35.7)
+
+- [flutter/174082](https://github.com/flutter/flutter/issues/174082) Apps, on all platforms, that extend MenuController class see a compile time failure when building.
+- [flutter/173770](https://github.com/flutter/flutter/issues/173770) Mitigates a memory leak that occurs on Android, when `Activities` are not kept upon exit and an Activity is exited and re-entered.
+
+### [3.35.6](https://github.com/flutter/flutter/releases/tag/3.35.6)
+
+- [flutter/175669](https://github.com/flutter/flutter/issues/175669) `flutter analyze --suggestions` supports versions up to Java 25, Gradle 9 and AGP 9, Kotlin 2.2.20.
+- [flutter/172624](https://github.com/flutter/flutter/issues/172624) Fixes an issue that could result in a corrupt pipeline cache when using the Impeller Vulkan back end.
+
+### [3.35.5](https://github.com/flutter/flutter/releases/tag/3.35.5)
+
+ - [flutter/172105](https://github.com/flutter/flutter/issues/172105) Flutter view no longer hangs after multiple transitions on iOS add-to-app.
+ - [flutter/173106](https://github.com/flutter/flutter/issues/173106) Multiple cursors display correctly.
+
+### [3.35.4](https://github.com/flutter/flutter/releases/tag/3.35.4)
+- [flutter/173474](https://github.com/flutter/flutter/issues/173474) - On all platforms PlatformDispatchers.instance.engineId no longer returns null after hot restart.
+- [flutter/174513](https://github.com/flutter/flutter/issues/174513) - On iOS 26, fix a bug where platform view's gesture blocking fails and lets touches on Flutter views fall through to underlying platform views.
+
+### [3.35.3](https://github.com/flutter/flutter/releases/tag/3.35.3)
+
+- [flutter/172627](https://github.com/flutter/flutter/issues/172627) - Unnecessary output is printed in non-verbose mode.
+- [flutter/173917](https://github.com/flutter/flutter/issues/173917) - On Android, `flutter build apk` may fail to calculate the version code when using `--build-number`.
+- [flutter/174437](https://github.com/flutter/flutter/issues/174437) - When running a Flutter web application in debug mode, the console is spammed with non-fatal error messages.
+- [flutter/174267](https://github.com/flutter/flutter/issues/174267) - Golden test failures can cause the test harness to stall.
+- [flutter/171691](https://github.com/flutter/flutter/issues/171691) - A race condition can cause crashes in the Impeller Vulkan back end.
+- [flutter/174100](https://github.com/flutter/flutter/issues/174100) - Superellipses may not render correctly when using Impeller.
+- [flutter/174015](https://github.com/flutter/flutter/issues/174015) - Obsolete warning and error messages are shown when switching between build modes in Xcode.
+
+### [3.35.2](https://github.com/flutter/flutter/releases/tag/3.35.2)
+
+- [flutter/173823](https://github.com/flutter/flutter/issues/173823) - On Android builds that do not use flutter.minSdkVersion and do use a value lower than 24 in a kotlin build file, correct flutters auto migration to update value with kotlin syntax.
+- [flutter/173741](https://github.com/flutter/flutter/issues/173741) - Fixes an issue that prevents (web) screen readers from pressing buttons through keyboard shortcuts.
+- [flutter/173960](https://github.com/flutter/flutter/issues/173960) - Fixes an issue where starting a widget preview fails if Chrome or Edge is not installed.
+- [flutter/174017](https://github.com/flutter/flutter/issues/174017) - Fixes an issue when running a 32-bit process on a 64-bit Windows system.
+- [flutter/173895](https://github.com/flutter/flutter/issues/173895) - Don't crash widget preview when a directory watcher restarts on Windows.
+- [flutter/171992](https://github.com/flutter/flutter/issues/171992) - Blocks `exynos9820` chip from using the Impeller Vulkan backend.
+- [flutter/173959](https://github.com/flutter/flutter/issues/173959) - Fixes a null assertion when trying to add `@Preview()` to invalid nodes.
+- [flutter/174184](https://github.com/flutter/flutter/pull/174184) - Fixes an issue where WASM builds were incorrectly triggered when dry run is disabled and --wasm is not specified.
+- [flutter/171758](https://github.com/flutter/flutter/issues/171758) - Fixes an ExistingDartDevelopmentServiceException that could be thrown when running flutter run on a device with an existing Dart development service.
+
+>>>>>>> 559ffa3f75e7402d65a8def9c28389a9b2e6fe42
 ### [3.35.1](https://github.com/flutter/flutter/releases/tag/3.35.1)
 
 - [flutter/173785](https://github.com/flutter/flutter/issues/173785) - Fixes an issue that prevented downloading the Flutter SDK for Windows from `flutter.dev`.
@@ -41,6 +192,17 @@ docs/releases/Hotfix-Documentation-Best-Practices.md
 Initial stable release.
 
 ## Flutter 3.32 Changes
+
+### [3.32.8](https://github.com/flutter/flutter/releases/tag/3.32.8)
+
+- [flutter/150131](https://github.com/flutter/flutter/issues/150131) iOS users on macOS 15 may see a tool crash if permissions are missing. Can work around by enabling mDNS permissions.
+- [flutter/155294](https://github.com/flutter/flutter/issues/155294) [flutter/169506](https://github.com/flutter/flutter/issues/169506) On android Add a new api for requesting a new surface from the embedder that is different from any previously returned.
+- [flutter/172602](https://github.com/flutter/flutter/pull/172602)  Do not call hasUnifiedMemory that was introduced in macOS 10.15 on versions before 10.15.
+- [flutter/172250](https://github.com/flutter/flutter/issues/172250) `TextInput.hide` call incorrectly clears the text in the active text field on iOS.
+
+### [3.32.7](https://github.com/flutter/flutter/releases/tag/3.32.7)
+
+- [flutter/172121](https://github.com/flutter/flutter/pull/172121) - Fix iOS images replaced with pink fill when coming out of background.
 
 ### [3.32.6](https://github.com/flutter/flutter/releases/tag/3.32.6)
 

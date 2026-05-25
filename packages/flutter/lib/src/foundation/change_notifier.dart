@@ -60,8 +60,8 @@ export 'dart:ui' show VoidCallback;
 ///    notifications whenever any of a list of other [Listenable]s trigger their
 ///    notifications.
 abstract class Listenable {
-  /// Abstract const constructor. This constructor enables subclasses to provide
-  /// const constructors so that they can be used in const expressions.
+  /// This constructor enables subclasses to provide const constructors so that
+  /// they can be used in const expressions.
   const Listenable();
 
   /// Return a [Listenable] that triggers when any of the given [Listenable]s
@@ -93,12 +93,14 @@ abstract class Listenable {
 ///    rebuild whenever a [ValueListenable] object triggers its notifications,
 ///    providing the builder with the value of the object.
 abstract class ValueListenable<T> extends Listenable {
-  /// Abstract const constructor. This constructor enables subclasses to provide
-  /// const constructors so that they can be used in const expressions.
+  /// This constructor enables subclasses to provide const constructors so that
+  /// they can be used in const expressions.
   const ValueListenable();
 
-  /// The current value of the object. When the value changes, the callbacks
-  /// registered with [addListener] will be invoked.
+  /// The current value of the object.
+  ///
+  /// When the value changes, the callbacks registered with [addListener] will be
+  /// invoked.
   T get value;
 }
 
@@ -282,11 +284,8 @@ mixin class ChangeNotifier implements Listenable {
       if (_count == 0) {
         _listeners = List<VoidCallback?>.filled(1, null);
       } else {
-        final List<VoidCallback?> newListeners = List<VoidCallback?>.filled(
-          _listeners.length * 2,
-          null,
-        );
-        for (int i = 0; i < _count; i++) {
+        final newListeners = List<VoidCallback?>.filled(_listeners.length * 2, null);
+        for (var i = 0; i < _count; i++) {
           newListeners[i] = _listeners[i];
         }
         _listeners = newListeners;
@@ -303,18 +302,22 @@ mixin class ChangeNotifier implements Listenable {
     // of our list.
     _count -= 1;
     if (_count * 2 <= _listeners.length) {
+<<<<<<< HEAD
       final List<VoidCallback?> newListeners = List<VoidCallback?>.filled(
         _count,
         null,
       );
+=======
+      final newListeners = List<VoidCallback?>.filled(_count, null);
+>>>>>>> 559ffa3f75e7402d65a8def9c28389a9b2e6fe42
 
       // Listeners before the index are at the same place.
-      for (int i = 0; i < index; i++) {
+      for (var i = 0; i < index; i++) {
         newListeners[i] = _listeners[i];
       }
 
       // Listeners after the index move towards the start of the list.
-      for (int i = index; i < _count; i++) {
+      for (var i = index; i < _count; i++) {
         newListeners[i] = _listeners[i + 1];
       }
 
@@ -323,7 +326,7 @@ mixin class ChangeNotifier implements Listenable {
       // When there are more listeners than half the length of the list, we only
       // shift our listeners, so that we avoid to reallocate memory for the
       // whole list.
-      for (int i = index; i < _count; i++) {
+      for (var i = index; i < _count; i++) {
         _listeners[i] = _listeners[i + 1];
       }
       _listeners[_count] = null;
@@ -350,7 +353,7 @@ mixin class ChangeNotifier implements Listenable {
     // overlays, it is common that the owner of this instance would be disposed a
     // frame earlier than the listeners. Allowing calls to this method after it
     // is disposed makes it easier for listeners to properly clean up.
-    for (int i = 0; i < _count; i++) {
+    for (var i = 0; i < _count; i++) {
       final VoidCallback? listenerAtIndex = _listeners[i];
       if (listenerAtIndex == listener) {
         if (_notificationCallStackDepth > 0) {
@@ -370,9 +373,10 @@ mixin class ChangeNotifier implements Listenable {
     }
   }
 
-  /// Discards any resources used by the object. After this is called, the
-  /// object is not in a usable state and should be discarded (calls to
-  /// [addListener] will throw after the object is disposed).
+  /// Discards any resources used by the object.
+  ///
+  /// After this is called, the object is not in a usable state and should be
+  /// discarded (calls to [addListener] will throw after the object is disposed).
   ///
   /// This method should only be called by the object's owner.
   ///
@@ -437,7 +441,7 @@ mixin class ChangeNotifier implements Listenable {
     _notificationCallStackDepth++;
 
     final int end = _count;
-    for (int i = 0; i < end; i++) {
+    for (var i = 0; i < end; i++) {
       try {
         _listeners[i]?.call();
       } catch (exception, stack) {
@@ -469,13 +473,17 @@ mixin class ChangeNotifier implements Listenable {
       if (newLength * 2 <= _listeners.length) {
         // As in _removeAt, we only shrink the list when the real number of
         // listeners is half the length of our list.
+<<<<<<< HEAD
         final List<VoidCallback?> newListeners = List<VoidCallback?>.filled(
           newLength,
           null,
         );
+=======
+        final newListeners = List<VoidCallback?>.filled(newLength, null);
+>>>>>>> 559ffa3f75e7402d65a8def9c28389a9b2e6fe42
 
-        int newIndex = 0;
-        for (int i = 0; i < _count; i++) {
+        var newIndex = 0;
+        for (var i = 0; i < _count; i++) {
           final VoidCallback? listener = _listeners[i];
           if (listener != null) {
             newListeners[newIndex++] = listener;
@@ -485,7 +493,7 @@ mixin class ChangeNotifier implements Listenable {
         _listeners = newListeners;
       } else {
         // Otherwise we put all the null references at the end.
-        for (int i = 0; i < newLength; i += 1) {
+        for (var i = 0; i < newLength; i += 1) {
           if (_listeners[i] == null) {
             // We swap this item with the next not null item.
             int swapIndex = i + 1;
@@ -531,22 +539,26 @@ class _MergingListenable extends Listenable {
 
 /// A [ChangeNotifier] that holds a single value.
 ///
-/// When [value] is replaced with something that is not equal to the old
-/// value as evaluated by the equality operator ==, this class notifies its
+/// When [value] is replaced with a new value that is **not equal** to the old
+/// value as evaluated by the equality operator (`==`), this class notifies its
 /// listeners.
 ///
 /// ## Limitations
 ///
-/// Because this class only notifies listeners when the [value]'s _identity_
-/// changes, listeners will not be notified when mutable state within the
-/// value itself changes.
+/// Notifications are triggered based on **equality (`==`)**, not on mutations
+/// within the value itself. As a result, changes to mutable objects that do not
+/// affect their equality will not cause listeners to be notified.
 ///
-/// For example, a `ValueNotifier<List<int>>` will not notify its listeners
-/// when the _contents_ of the list are changed.
+/// For example, a `ValueNotifier<List<int>>` will not notify listeners when
+/// the contents of the existing list are modified in-place; it only notifies
+/// when a new value is assigned to the `value` property (i.e. `value = newValue`),
+/// where equality is determined by `==`.
 ///
-/// As a result, this class is best used with only immutable data types.
+/// Because of this behavior, [ValueNotifier] is best used with immutable data
+/// types.
 ///
-/// For mutable data types, consider extending [ChangeNotifier] directly.
+/// For mutable data types, consider extending [ChangeNotifier] directly and
+/// calling [notifyListeners] manually when changes occur.
 class ValueNotifier<T> extends ChangeNotifier implements ValueListenable<T> {
   /// Creates a [ChangeNotifier] that wraps this value.
   ValueNotifier(this._value) {
